@@ -9,7 +9,7 @@
 	let routes = {
 		"/": Home,
 		"/launches":Launches,
-		"/news":News		
+		"/news":News			
 	}
 </script>
 
