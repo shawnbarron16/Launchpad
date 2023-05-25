@@ -13,7 +13,7 @@
         margin: 0;
         text-align: left;
         max-height: 120px;
-        background-color: #252525;
+        background-color: #1b1b1b;
     }
     img{
         margin-top: 5px;
