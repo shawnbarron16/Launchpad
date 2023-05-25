@@ -4,7 +4,7 @@
 
 <navbar>
     <div class="navbar">
-        <img src="/images/rocket-clip-art.png" alt="A picture of a cartoon rocket flying">
+        <img src="/images/rocket-clip-art.png" alt="A cartoon rocket flying">
         <a href="#/">Home</a>
         <a href="#/news">News</a>
         <a href="#/launches">Launches</a>
