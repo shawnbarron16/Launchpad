@@ -11,6 +11,7 @@
 		"/launches":Launches,
 		"/news":News			
 	}
+	
 </script>
 
 <Navbar />
