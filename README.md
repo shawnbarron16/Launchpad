@@ -1,4 +1,4 @@
-# This repo is no longer maintained. Consider using `npm init vite` and selecting the `svelte` option or — if you want a full-fledged app framework — use [SvelteKit](https://kit.svelte.dev), the official application framework for Svelte.
+# Launchpad is a hub for space and rocket enthusiasts alike. Here you can get caught up on the latest news and happenings in the world of space exploration, as well as track upcoming rocket launches.
 
 ---
 
