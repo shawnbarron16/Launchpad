@@ -2,9 +2,6 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import { getFunctions } from 'firebase/functions';
-import { logger } from "firebase/functions";
-import { onRequest } from "firebase/functions";
-import { onDocumentCreated } from "firebase/functions";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

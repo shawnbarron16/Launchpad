@@ -1,19 +1,62 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+// import {db} from "../src/firebase";
 
-const {onRequest} = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
+// const functions = require("firebase-functions");
+// const axios = require("axios");
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+// exports.getLaunches = functions.https.onRequest(async (req, res) => {
+//   try {
+//     const launchURL = "https://ll.thespacedevs.com/2.2.0/launch/upcoming";
+//     const response = await axios.get(launchURL);
+//     const data = response.data.results;
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
+//     // Clear existing documents in the collection before saving new data
+//     await db.collection("launches").get().then((snapshot) => {
+//       snapshot.forEach((doc) => {
+//         doc.ref.delete();
+//       });
+//     });
+
+//     // Save each launch document to the collection
+//     data.forEach((launch) => {
+//       db.collection("launches").add(launch);
+//     });
+//     res.status(200).send("Launch data was successfully retrieved!");
+//   } catch (error) {
+//     console.error("Error fetching or saving data:", error);
+//     res.status(500).send("Error fetching or saving the data");
+//   }
 // });
+
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+const axios = require("axios");
+
+admin.initializeApp();
+
+exports.fetchUpcomingLaunches = functions.https.onRequest(async (req, res) => {
+  try {
+    const apiUrl = "https://lldev.thespacedevs.com/2.2.0/launch/upcoming";
+    const response = await axios.get(apiUrl);
+    const data = response.data.results;
+
+    const firestore = admin.firestore();
+    const launchesCollection = firestore.collection("launches");
+
+    // Clear existing documents in the collection before saving new data
+    await launchesCollection.get().then((snapshot) => {
+      snapshot.forEach((doc) => {
+        doc.ref.delete();
+      });
+    });
+
+    // Save each launch document to the collection
+    data.forEach((launch) => {
+      launchesCollection.add(launch);
+    });
+
+    res.status(200).send("Data fetched and saved successfully!");
+  } catch (error) {
+    console.error("Error fetching or saving data:", error);
+    res.status(500).send("Error fetching or saving data");
+  }
+});
