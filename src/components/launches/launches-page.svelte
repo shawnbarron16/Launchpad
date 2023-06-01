@@ -18,10 +18,10 @@
     <h1>Launches</h1>
     {#each launches as launch (launch.id)}
         <div>
-            <p>Agency: {launch.launch_service_provider.name}</p>
-            <p>Model: {launch.rocket.configuration.full_name}</p>
-            <p>Number of launches for {launch.launch_service_provider.name} this year: {launch.agency_launch_attempt_count_year}</p>
-            <p>Mission type: {launch.mission.type}</p>
+            Agency: {launch.launch_service_provider.name}
+            Model: {launch.rocket.configuration.full_name}
+            Number of launches for {launch.launch_service_provider.name} this year: {launch.agency_launch_attempt_count_year}
+            Mission type: {launch.mission.type}
         </div>
     {/each}
 </main>
