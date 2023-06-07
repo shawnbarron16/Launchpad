@@ -7,10 +7,6 @@
 </script>
 
 <main>
-	<h1>
-		“When you launch in a rocket, you’re not really flying that rocket.
-		You’re just sort of hanging on.” - Michael P. Anderson
-	</h1>
 	<p>News and Launches</p>
 	<h3>News</h3>
 	{#each $ArticleStore as article, i}
