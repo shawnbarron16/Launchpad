@@ -4,7 +4,7 @@ const ArticleStore = writable([], set => {
     fetch('https://api.spaceflightnewsapi.net/v4/articles')
         .then(res => res.json())
         .then(data => {
-            console.log("API response:", data);
+            //console.log("API response:", data);
             if (data && data.results) {
                 const loadedArticles = data.results.map(result => {
                     return {
