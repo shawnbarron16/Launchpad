@@ -1,30 +1,10 @@
 <script>
-    let articles = [];
-    let isLoading = true;
-
-    async function getNews(req, res) {
-        try {
-            const newsUrl = "https://api.spaceflightnewsapi.net/v4/articles";
-            const response = await fetch(newsUrl);
-            response.json().then((data) => {
-                articles = data.results;
-                isLoading = false;
-            });
-        } catch (error) {
-            console.error("Error getting space news articles:", error);
-            res.status(500).send("Error getting space news articles.");
-        }
-    }
-
-    getNews();
+    import ArticleStore from "../stores/ArticleStore.js"
 </script>
 
 <main>
-    {#if isLoading}
-        <h1>Loading...</h1>
-    {:else}
         <h1>News</h1>
-        {#each articles as article}
+        {#each $ArticleStore as article}
             <a href={article.url}>
                 <div>
                     <p>
@@ -37,7 +17,6 @@
                 </div>
             </a>
         {/each}
-    {/if}
 </main>
 
 <style>
