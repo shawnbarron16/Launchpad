@@ -3,6 +3,7 @@
 </script>
 
 <main>
+    <!--Access the Article Store and render the results-->
     <h1>News</h1>
     {#each $ArticleStore as article}
         <a href={article.url}>

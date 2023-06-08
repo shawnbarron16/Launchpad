@@ -1,10 +1,12 @@
 import { writable } from "svelte/store";
 
+//Fetch the news data directly from the news api, convert it into json, check if the fetch actually got results. 
+//If yes map the results to an array called loadedArticles, then set the store value to that array.
+//If no then console log the error.
 const ArticleStore = writable([], set => {
     fetch('https://api.spaceflightnewsapi.net/v4/articles')
         .then(res => res.json())
         .then(data => {
-            //console.log("API response:", data);
             if (data && data.results) {
                 const loadedArticles = data.results.map(result => {
                     return {
