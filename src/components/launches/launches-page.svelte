@@ -3,6 +3,7 @@
 </script>
 
 <main>
+    <!--Access the Article Store and render the results-->
     <h1>Launches</h1>
     {#each $LaunchStore as launch (launch.id)}
         <div>

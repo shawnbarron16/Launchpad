@@ -9,6 +9,7 @@
 <main>
 	<p>News and Launches</p>
 	<h3>News</h3>
+	<!--The i in the each loops represents the index of the object pulled from the stores-->
 	{#each $ArticleStore as article, i}
 		{#if i < limit}
 			<a href={article.url}>
