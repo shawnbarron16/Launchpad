@@ -1,7 +1,12 @@
 <script>
 	import ArticleStore from "../components/stores/ArticleStore.js";
-	import LaunchStore from "./stores/LaunchStore.js";
+	import LaunchStore from "./stores/LaunchStore.js";;
 
+	const formatTime = (launchWindow) => {
+        let betterString = launchWindow.replace("T", ':  Time: ')
+        let formatedString = betterString.replace("Z", '')
+        return formatedString
+    }
 	//The limit sets how many articles/launches will be displayed on the homepage
 	let limit = 3;
 </script>
@@ -44,6 +49,9 @@
 					<p>
 					Mission type: {launch.mission.type}
 					</p>
+					Launch Window: <br>
+                    Start: {formatTime(launch.window_start)} <br>
+                    End: {formatTime(launch.window_end)}
 				</div>
 			{/if}
 		{/each}
