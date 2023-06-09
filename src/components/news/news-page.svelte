@@ -3,19 +3,20 @@
 </script>
 
 <main>
-    <!--Access the Article Store and render the results-->
     <h1>News</h1>
     <div class="articles">
         {#each $ArticleStore as article}
             <a href={article.url}>
-                <div>
-                    <p class="title">
-                        Title: {article.title}
+                <div class="article-container">
+                    <div class="article-content">
                         <img src={article.image_url} alt="Article preview" />
-                    </p>
-                    <p>
-                        {article.summary}
-                    </p>
+                        <p class="title">
+                            Title: {article.title}
+                        </p>
+                        <p>
+                            {article.summary}
+                        </p>
+                    </div>
                 </div>
             </a>
         {/each}
@@ -51,5 +52,18 @@
     .articles {
         display: flex;
         flex-direction: column;
+    }
+
+    /* Media query for mobile devices */
+    @media (max-width: 768px) {
+        img {
+            float: none;
+        }
+
+        .article-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 </style>

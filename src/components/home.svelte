@@ -1,31 +1,36 @@
 <script>
 	import ArticleStore from "../components/stores/ArticleStore.js";
-	import LaunchStore from "./stores/LaunchStore.js";;
+	import LaunchStore from "./stores/LaunchStore.js";
 
 	const formatTime = (launchWindow) => {
-        let betterString = launchWindow.replace("T", ':  Time: ')
-        let formatedString = betterString.replace("Z", '')
-        return formatedString
-    }
-	//The limit sets how many articles/launches will be displayed on the homepage
+		let betterString = launchWindow.replace("T", ":  Time: ");
+		let formatedString = betterString.replace("Z", "");
+		return formatedString;
+	};
+
 	let limit = 3;
 </script>
 
 <main>
 	<h2>Latest News</h2>
-	<!--The i in the each loops represents the index of the object pulled from the stores-->
 	<div class="articles">
 		{#each $ArticleStore as article, i}
 			{#if i < limit}
 				<a href={article.url}>
 					<div class="news-article">
-						<img src={article.image_url} alt="Article preview" />
-						<p class="title">
-							Title: {article.title}
-						</p>
-						<p>
-							{article.summary}
-						</p>
+						<div class="article-content">
+								<img
+									class="article-image"
+									src={article.image_url}
+									alt="Article preview"
+								/>
+							<p class="title">
+								Title: {article.title}
+							</p>
+							<p>
+								{article.summary}
+							</p>
+						</div>
 					</div>
 				</a>
 			{/if}
@@ -36,22 +41,32 @@
 		{#each $LaunchStore as launch, i}
 			{#if i < limit}
 				<div class="launch-display">
-					<p class="model">
-						Model: {launch.rocket.configuration.full_name}
-					</p>
-					<p>
-					Agency: {launch.launch_service_provider.name}
-					<img src={launch.image} alt="rocket" class="rocket-img">
-					</p>
-					<p>
-					Number of launches for {launch.launch_service_provider.name} this year: {launch.agency_launch_attempt_count_year}
-					</p>
-					<p>
-					Mission type: {launch.mission.type}
-					</p>
-					Launch Window: <br>
-                    Start: {formatTime(launch.window_start)} <br>
-                    End: {formatTime(launch.window_end)}
+					<div class="launch-content">
+						<p class="model">
+							Model: {launch.rocket.configuration.full_name}
+						</p>
+						<img
+									src={launch.image}
+									alt="rocket"
+									class="rocket-img"
+								/>
+						<div class="launch-details">
+							<p>
+								Agency: {launch.launch_service_provider.name}
+							</p>
+							<p>
+								Number of launches for {launch.launch_service_provider.name} this year: {launch.agency_launch_attempt_count_year}
+							</p>
+							<p>
+								Mission type: {launch.mission.type}
+							</p>
+							<p>
+								Launch Window: <br />
+								Start: {formatTime(launch.window_start)} <br />
+								End: {formatTime(launch.window_end)}
+							</p>
+						</div>
+					</div>
 				</div>
 			{/if}
 		{/each}
@@ -66,7 +81,7 @@
 		font-size: large;
 	}
 
-	img {
+	.article-image {
 		margin-top: 5px;
 		width: 300px;
 		height: 200px;
@@ -105,8 +120,27 @@
 		font-weight: 1000;
 		font-size: larger;
 	}
-	
+
 	.rocket-img {
 		float: right;
+		margin-top: 5px;
+		width: 300px;
+		height: 200px;
+	}
+
+	/* Media query for mobile devices */
+	@media (max-width: 768px) {
+		.article-content,
+		.launch-content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		.article-image,
+		.rocket-img {
+			float: none;
+		}
 	}
 </style>
+
