@@ -3,7 +3,7 @@
 </script>
 
 <footer>
-    <div class="footer">Footer</div>
+    <a href="https://github.com/shawnbarron16/Launchpad" class="footer">Github</a>
 </footer>
 
 <style>
