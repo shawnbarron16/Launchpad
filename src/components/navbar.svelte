@@ -20,13 +20,13 @@
         margin: 0;
         text-align: left;
         max-height: 120px;
-        background-color: #1b1b1b;
+        background-color: #413543;
     }
 
     img {
         margin-top: 5px;
-        max-width: 130px;
-        max-height: 100px;
+        max-width: 150px;
+        max-height: 120px;
     }
 
     .navbar-quote {
@@ -42,5 +42,6 @@
         align-self: flex-end;
         margin-left: 10px;
         margin-right: 10px;
+        font-size: x-large;
     }
 </style>
