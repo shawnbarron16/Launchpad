@@ -9,7 +9,7 @@
         {#each $ArticleStore as article}
             <a href={article.url}>
                 <div>
-                    <p>
+                    <p class="title">
                         Title: {article.title}
                         <img src={article.image_url} alt="Article preview" />
                     </p>

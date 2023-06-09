@@ -3,7 +3,7 @@
 
 <navbar class="navbar">
     <div class="navbar-left">
-        <img src="/images/rocket-clip-art.png" alt="A cartoon rocket flying" />
+        <img src="https://www.freeiconspng.com/thumbs/rocket-png/blue-rocket-png-9.png" alt="A cartoon rocket flying" />
         <div class="navbar-links">
             <a class="navbar-link" href="#/">Home</a>
             <a class="navbar-link" href="#/news">News</a>
