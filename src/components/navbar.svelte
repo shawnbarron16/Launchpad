@@ -26,7 +26,7 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
-        background-color: #413543;
+        background-color: #1c1c24;
         padding: 10px;
     }
 
