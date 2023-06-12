@@ -1,6 +1,7 @@
 <script>
 </script>
 
+<!--Have the links and logo on the left side of the screen, and the quote centered-->
 <navbar class="navbar">
     <div class="navbar-left">
         <img src="https://www.freeiconspng.com/thumbs/rocket-png/blue-rocket-png-9.png" alt="A cartoon rocket flying" />
@@ -16,13 +17,14 @@
             You’re just sort of hanging on.” - Michael P. Anderson
         </h1>
     </div>
+    <div class="navbar-right" />
 </navbar>
 
 <style>
     .navbar {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: space-evenly;
         align-items: center;
         background-color: #413543;
         padding: 10px;
@@ -30,7 +32,12 @@
 
     .navbar-left {
         display: flex;
+        flex: 1;
         align-items: center;
+    }
+
+    .navbar-right {
+        flex: 1;
     }
 
     img {
@@ -40,8 +47,10 @@
     }
 
     .navbar-quote {
+        display: flex;
+        flex: 1;
+        align-items: center;
         text-align: center;
-        margin: 10px 0;
         color: #8F43EE;
         flex: 1;
     }
