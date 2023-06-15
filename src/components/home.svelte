@@ -25,7 +25,7 @@
 									alt="Article preview"
 								/>
 							<p class="title">
-								Title: {article.title}
+								{article.title}
 							</p>
 							<p>
 								{article.summary}
