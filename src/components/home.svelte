@@ -27,7 +27,7 @@
 							<p class="title">
 								{article.title}
 							</p>
-							<p>
+							<p class="summary">
 								{article.summary}
 							</p>
 						</div>
@@ -97,6 +97,11 @@
 	.title {
 		font-weight: 1000;
 		font-size: larger;
+		text-align: center;
+	}
+
+	.summary {
+		text-align: center;
 	}
 
 	.articles {
