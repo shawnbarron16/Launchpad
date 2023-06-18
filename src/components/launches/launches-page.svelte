@@ -91,7 +91,6 @@
 			flex-direction: column;
 			align-items: center;
 		}
-		np
 		.rocket-img {
 			float: none;
 		}
